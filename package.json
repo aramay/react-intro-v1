@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "test": "standard",
-    "build": "webpack js/ClientApp.js public/bundle.js"
+    "build": "webpack"
   },
   "dependencies": {
     "axios": "0.9.1",
