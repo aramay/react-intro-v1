@@ -1,19 +1,26 @@
 /* global React ReactDOM */
-var React = require('react')
-var ReactDOM = require('react-dom')
-// var MyTitle = require('./MyTitle')
+const React = require('react')
+const ReactDOM = require('react-dom')
+const Landing = require('./Landing')
+const Search = require('./Search')
 
-var MyFirstComponent = () => {
+const ReactRouter = require('react-router')
+
+{ /* destructuring es6 feature*/ }
+const { Router, Route, hashHistory } = ReactRouter
+
+{ /* line 11-13, equivalent to line 8 */ }
+// const Router = ReactRouter.Router
+// const Route = ReactRouter.Route
+// const hashHistory = ReactRouter.hashHistory
+
+const App = () => {
   return (
-
-    <div className='app-container'>
-      <div className='home-info'>
-        <h1 className='title'></h1>
-        <input className='search' type="text" placeholder='Search' />
-        <button className='browse-all'>or Browse All</button>
-      </div>
-    </div>
+    <Router history={hashHistory}>
+      <Route path='/' component={Landing} />
+      <Route path='/search' component={Search} />
+    </Router>
   )
 }
 
-ReactDOM.render(<MyFirstComponent />, document.getElementById('app'))
+ReactDOM.render(<App />, document.getElementById('app'))
