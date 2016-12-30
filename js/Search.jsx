@@ -7,9 +7,9 @@ const Search = () => {
     <div className='container'>
       <div className='shows'>
         {data.shows.map((show) => {
-          {console.log(show)}
           return (
-            <ShowCard show={show} key={show.imdbID}/>
+            //spread operator (...)
+            <ShowCard {...show} key={show.imdbID} />
           )
         })}
       </div>
