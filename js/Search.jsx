@@ -6,7 +6,7 @@ const Search = React.createClass({
 
   getInitialState () {
     return {
-      searchTerm: 'this is a search term'
+      searchTerm: ''
     }
   },
   handleSearchTermEvent (event) {
@@ -16,16 +16,20 @@ const Search = React.createClass({
     return (
       <div className='container'>
         <header className='header'>
-          <h1 className='brand'>svideo{this.state.searchTerm}</h1>
+          <h1 className='brand'>svideo</h1>
           <input value={this.state.searchTerm} type='text' className='search-input' placeholder='search' onChange={this.handleSearchTermEvent} />
         </header>
         <div className='shows'>
-          {data.shows.map((show) => {
+          {data.shows.filter((show) => {
+            return `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0
+          })
+          .map((show) => {
             return (
               // spread operator (...)
               <ShowCard {...show} key={show.imdbID} />
             )
-          })}
+          })
+        }
         </div>
       </div>
     )
@@ -33,10 +37,3 @@ const Search = React.createClass({
 })
 
 module.exports = Search
-
-{ /*
-
-<pre><code>
-      {JSON.stringify(shows, null, 4)}
-    </code></pre>
-*/ }
