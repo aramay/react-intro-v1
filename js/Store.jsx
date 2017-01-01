@@ -3,8 +3,12 @@ const reactRedux = require('react-redux')
 
 const SET_SEARCH_TERM = 'setSearchTerm'
 
-const reducer = (state, action) => {
-  switch(action.type) {
+const initialState = {
+  searchTerm: ''
+}
+
+const rootReducer = (state = initialState, action) => {
+  switch (action.type) {
     case SET_SEARCH_TERM:
       return reduceSearch(state, action)
     default:
@@ -17,3 +21,5 @@ const reduceSearch = (state, action) => {
   Object.assign(newState, state, {searchTerm: action.value})
   return newState
 }
+
+const store = redux.createStore(rootReducer)
