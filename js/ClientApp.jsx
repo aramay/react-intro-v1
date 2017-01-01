@@ -24,8 +24,6 @@ const App = React.createClass({
       return show.imdbID === nextState.params.id
     })
 
-    console.log('nextState', nextState, 'showArray', showArray)
-
     if (showArray.length < 1) {
       return replace('/')
     }
