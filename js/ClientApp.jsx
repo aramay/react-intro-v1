@@ -18,16 +18,32 @@ const { Router, Route, IndexRoute, hashHistory } = ReactRouter
 // const Route = ReactRouter.Route
 // const hashHistory = ReactRouter.hashHistory
 
-const App = () => {
-  return (
-    <Router history={hashHistory}>
-      <Route path='/' component={Layout}>
-        <IndexRoute component={Landing} />
-        <Route path='/search' component={Search} shows={shows} />
-        <Route path='/details/:id' component={Details} />
-      </Route>
-    </Router>
-  )
-}
+const App = React.createClass({
+  assignShow (nextState, replace) {
+    const showArray = shows.filter((show) => {
+      return show.imdbID === nextState.params.id
+    })
+
+    console.log('nextState', nextState, 'showArray', showArray)
+
+    if (showArray.length < 1) {
+      return replace('/')
+    }
+    // take all properties of showArray and put them into nextState
+    Object.assign(nextState.params, showArray[0])
+    return nextState
+  },
+  render () {
+    return (
+      <Router history={hashHistory}>
+        <Route path='/' component={Layout}>
+          <IndexRoute component={Landing} />
+          <Route path='/search' component={Search} shows={shows} />
+          <Route path='/details/:id' component={Details} onEnter={this.assignShow} />
+        </Route>
+      </Router>
+    )
+  }
+})
 
 ReactDOM.render(<App />, document.getElementById('app'))
