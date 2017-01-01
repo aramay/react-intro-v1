@@ -23,3 +23,19 @@ const reduceSearch = (state, action) => {
 }
 
 const store = redux.createStore(rootReducer)
+
+const mapStateToProps = (state) => (
+    {searchTerm: state.searchTerm}
+  )
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setSearchTerm (searchTerm) {
+      dispatch({type: SET_SEARCH_TERM, value: searchTerm})
+    }
+  }
+}
+
+const connector = reactRedux.connect(mapStateToProps, mapDispatchToProps)
+
+module.exports = { connector, store }
