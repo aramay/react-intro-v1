@@ -1,4 +1,5 @@
 const React = require('react')
+const Header = require('./Header')
 const { object } = React.PropTypes
 
 const Details = React.createClass({
@@ -8,12 +9,10 @@ const Details = React.createClass({
   render () {
     const params = this.props.params || {}
     const { title, description, year, poster, trailer } = params
-    return (  
+    return (
       <div className='container'>
 
-        <header className='header'>
-          <h1 className='brand'>svideo</h1>
-        </header>
+        <Header />
 
         <div className=''video-info>
           <h1 className='video-title'>{title}</h1>
