@@ -1,9 +1,9 @@
 {
   "name": "complete-intro-to-react",
   "version": "1.0.0",
-  "description": "A two day workshop on a complete intro to React",
+  "description": "A demo app to search for TV shows (React)",
   "main": "index.js",
-  "author": "Brian Holt <btholt@gmail.com>",
+  "author": "Abid Ramay <abidramay@gmail.com>",
   "license": "MIT",
   "scripts": {
     "test": "mocha --require test/helpers/setup.js",
