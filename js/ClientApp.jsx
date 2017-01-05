@@ -12,20 +12,23 @@ const { Provider } = require('react-redux')
 const ReactRouter = require('react-router')
 
 { /* destructuring es6 feature*/ }
-const { Router, Route, IndexRoute, hashHistory } = ReactRouter
+const { Router, Route, IndexRoute, browserHistory } = ReactRouter
 
 { /* line 11-13, equivalent to line 8 */ }
 // const Router = ReactRouter.Router
 // const Route = ReactRouter.Route
 // const hashHistory = ReactRouter.hashHistory
 
-const myRoutes = (prompt) => {
-  <Route path='/' component={Layout}>
-    <IndexRoute component={Landing} />
-    <Route path='/search' component={Search} />
-    <Route path='/details/:id' component={Details} onEnter={this.assignShow} />
-  </Route>
+const myRoutes = (props) => {
+  return (
+    <Route path='/' component={Layout}>
+      <IndexRoute component={Landing} />
+      <Route path='/search' component={Search} />
+      <Route path='/details/:id' component={Details} />
+    </Route>
+  )
 }
+
 const App = React.createClass({
   // assignShow (nextState, replace) {
   //   const showArray = shows.filter((show) => {
@@ -42,7 +45,7 @@ const App = React.createClass({
   render () {
     return (
       <Provider store={store}>
-        <Router history={hashHistory}>
+        <Router history={browserHistory}>
           {myRoutes()}
         </Router>
       </Provider>
@@ -50,4 +53,5 @@ const App = React.createClass({
   }
 })
 
+App.Routes = myRoutes
 module.exports = App
