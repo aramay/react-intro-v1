@@ -8,7 +8,7 @@ const Header = React.createClass({
   propTypes: {
     showSearch: bool,
     searchTerm: string,
-    handleSearchTermChange: func,
+    // handleSearchTermChange: func,
     setSearchTerm: func
   },
   handleSearchTermEvent (event) {

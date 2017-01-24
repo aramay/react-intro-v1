@@ -44,6 +44,7 @@ const App = React.createClass({
   // },
   render () {
     return (
+      //provider comes from redux-store
       <Provider store={store}>
         <Router history={browserHistory}>
           {myRoutes()}

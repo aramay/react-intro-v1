@@ -19,7 +19,7 @@ const ClientApp = require('./js/ClientApp.jsx')
 const routes = ClientApp.Routes
 
 console.log(routes())
-console.log(ReactRedux)
+console.log("React Redux ", ReactRedux)
 
 const app = express()
 

@@ -3,7 +3,7 @@ const reactRedux = require('react-redux')
 const { shows } = require('../public/data')
 
 const SET_SEARCH_TERM = 'setSearchTerm'
-
+//set initialState or default state
 const initialState = {
   searchTerm: '',
   shows: shows
@@ -33,7 +33,7 @@ const mapStateToProps = (state) => (
     searchTerm: state.searchTerm,
     shows: state.shows // pass this to connected props
   }
-  )
+)
 
 const mapDispatchToProps = (dispatch) => {
   return {
