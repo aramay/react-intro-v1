@@ -4,7 +4,7 @@
 
 ## Demo
 
-https://aramay.github.io/react-intro-v1/
+https://tv-shows-react.herokuapp.com/
 
 ## License
 
